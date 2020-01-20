@@ -17,7 +17,7 @@ stages:
       gitAuthor: dhendel
       gitEmail: dustinhendel@gmail.com
     envFrom:
-    - sourceName: gh-ssh
+    - sourceName: gh-deploy
       sourceKey: DEPLOY_KEY
       targetKey: DEPLOY_KEY
 timeout: 60
