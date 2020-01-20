@@ -1,0 +1,24 @@
+stages:
+- name: Build Image
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: api-demo
+      registry: 127.0.0.1:34729
+- name: Charts
+  steps:
+  - publishCatalogConfig:
+      path: chart
+      catalogTemplate: api-demo
+      version: 1.0.0
+      gitUrl: git@github.com:dahendel/helm-charts-testing.git
+      gitBranch: master
+      gitAuthor: dhendel
+      gitEmail: dustinhendel@gmail.com
+    envFrom:
+    - sourceName: gh-ssh
+      sourceKey: DEPLOY_KEY
+      targetKey: DEPLOY_KEY
+timeout: 60
+notification: {}
