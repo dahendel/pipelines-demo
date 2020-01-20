@@ -12,13 +12,16 @@ stages:
       path: chart
       catalogTemplate: api-demo
       version: ${CICD_GIT_TAG}
-      gitUrl: git@github.com:dahendel/helm-charts-testing.git
+      gitUrl: https://github.com/dahendel/helm-charts-testing.git
       gitBranch: master
-      gitAuthor: dhendel
+      gitAuthor: dahendel
       gitEmail: dustinhendel@gmail.com
     envFrom:
-    - sourceName: gh-deploy
-      sourceKey: DEPLOY_KEY
-      targetKey: DEPLOY_KEY
+    - sourceName: gh-user
+      sourceKey: USERNAME
+      targetKey: USERNAME
+    - sourceName: gh-user
+      sourceKey: PASSWORD
+      targetKey: PASSWORD
 timeout: 60
 notification: {}
