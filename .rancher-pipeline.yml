@@ -17,10 +17,10 @@ stages:
       gitAuthor: dahendel
       gitEmail: dustinhendel@gmail.com
     envFrom:
-    - sourceName: gh-user
+    - sourceName: gh-jenkins
       sourceKey: USERNAME
       targetKey: USERNAME
-    - sourceName: gh-user
+    - sourceName: gh-jenkins
       sourceKey: PASSWORD
       targetKey: PASSWORD
 timeout: 60
