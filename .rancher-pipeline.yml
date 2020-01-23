@@ -11,7 +11,7 @@ stages:
   - publishCatalogConfig:
       path: chart
       catalogTemplate: api-demo
-      version: ${CICD_GIT_TAG}
+      version: ${CICD_GIT_BRANCH}}
       gitUrl: https://github.com/dahendel/helm-charts-testing.git
       gitBranch: master
       gitAuthor: dahendel
