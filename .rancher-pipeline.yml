@@ -1,2 +1,36 @@
+stages:
+- name: Build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: pipeline-demo
+      registry: 127.0.0.1:34689
+    when:
+      branch:
+        include:
+        - master
+      event:
+        include:
+        - tag
+- name: Catalog
+  steps:
+  - publishCatalogConfig:
+      path: chart
+      catalogTemplate: hello-api
+      version: ${CICD_GIT_TAG}
+      gitUrl: https://github.com/dahendel/pipelines-demo.git
+      gitBranch: master
+      gitAuthor: dahendel
+      gitEmail: dustinhendel@gmail.com
+    env:
+      USERNAME: dahendel
+    envFrom:
+    - sourceName: ns-g9wtr
+      sourceKey: USERNAME
+      targetKey: USERNAME
+    - sourceName: ns-g9wtr
+      sourceKey: PASSWORD
+      targetKey: PASSWORD
 timeout: 60
 notification: {}
