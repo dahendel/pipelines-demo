@@ -7,12 +7,8 @@ stages:
       tag: pipeline-demo
       registry: 127.0.0.1:34689
     when:
-      branch:
-        include:
-        - master
-      event:
-        include:
-        - tag
+      branch: {}
+      event: {}
 - name: Catalog
   steps:
   - publishCatalogConfig:
@@ -27,10 +23,7 @@ stages:
       USERNAME: dahendel
     envFrom:
     - sourceName: gh
-      sourceKey: USERNAME
-      targetKey: USERNAME
-    - sourceName: gh
-      sourceKey: PASSWORD
-      targetKey: PASSWORD
+      sourceKey: DEPLOY_KEY
+      targetKey: DEPLOY_KEY
 timeout: 60
 notification: {}
