@@ -15,7 +15,7 @@ stages:
       path: chart
       catalogTemplate: hello-api
       version: ${CICD_GIT_BRANCH}
-      gitUrl: https://github.com/dahendel/pipelines-demo.git
+      gitUrl: git@github.com:dahendel/pipelines-demo.git
       gitBranch: master
       gitAuthor: dahendel
       gitEmail: dustinhendel@gmail.com
