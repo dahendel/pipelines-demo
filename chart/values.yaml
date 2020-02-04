@@ -32,17 +32,22 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 8080
+  type: NodePort
+  port: 8089
 
 ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTP
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:373353083651:certificate/48554744-c54e-4a86-935c-01eaea1b96be
+
   hosts:
     - host: api-demo.rancher.local
-      paths: []
+      paths:
+        - /hello
+      svcPort: 8089
 
   tls: []
   #  - secretName: chart-example-tls
