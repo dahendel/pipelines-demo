@@ -11,16 +11,16 @@ stages:
   - publishCatalogConfig:
       path: chart
       catalogTemplate: api-demo
-      version: ${CICD_GIT_BRANCH}}
+      version: ${CICD_GIT_TAG}
       gitUrl: https://github.com/dahendel/helm-charts-testing.git
       gitBranch: master
       gitAuthor: dahendel
       gitEmail: dustinhendel@gmail.com
     envFrom:
-    - sourceName: gh-jenkins
+    - sourceName: ns-g9wtr
       sourceKey: USERNAME
       targetKey: USERNAME
-    - sourceName: gh-jenkins
+    - sourceName: ns-g9wtr
       sourceKey: PASSWORD
       targetKey: PASSWORD
 timeout: 60
