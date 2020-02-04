@@ -18,7 +18,7 @@ stages:
   - publishCatalogConfig:
       path: chart
       catalogTemplate: hello-api
-      version: ${CICD_GIT_TAG}
+      version: ${CICD_GIT_BRANCH}
       gitUrl: https://github.com/dahendel/pipelines-demo.git
       gitBranch: master
       gitAuthor: dahendel
@@ -26,10 +26,10 @@ stages:
     env:
       USERNAME: dahendel
     envFrom:
-    - sourceName: ns-mz76g
+    - sourceName: gh
       sourceKey: USERNAME
       targetKey: USERNAME
-    - sourceName: ns-mz76g
+    - sourceName: gh
       sourceKey: PASSWORD
       targetKey: PASSWORD
 timeout: 60
