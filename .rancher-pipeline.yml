@@ -26,10 +26,10 @@ stages:
     env:
       USERNAME: dahendel
     envFrom:
-    - sourceName: ns-g9wtr
+    - sourceName: ns-mz76g
       sourceKey: USERNAME
       targetKey: USERNAME
-    - sourceName: ns-g9wtr
+    - sourceName: ns-mz76g
       sourceKey: PASSWORD
       targetKey: PASSWORD
 timeout: 60
