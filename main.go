@@ -19,5 +19,5 @@ func main() {
 }
 
 func hello(req *restful.Request, resp *restful.Response) {
-	io.WriteString(resp, "world")
+	io.WriteString(resp, "world-allstar")
 }
